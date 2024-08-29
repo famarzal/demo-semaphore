@@ -1,4 +1,4 @@
-- hosts: site
+- hosts: all
   roles:
   - install_htop
 
