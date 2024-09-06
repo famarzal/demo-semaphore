@@ -1,10 +1,12 @@
 ---
 - hosts: all
   gather_facts: no
+  become: true
+  become_user: root
   tasks:
     - name: shutdown
       command: /sbin/shutdown -h now
-      sudo: yes
-
+  
+      
     - name: wait go down
       local_action: wait_for host={{ ansible_ssh_host }} port=22 state=stopped
